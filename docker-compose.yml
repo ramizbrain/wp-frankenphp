@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  wordpress:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    volumes:
+      - ./wordpress:/app/public
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./php.ini:/usr/local/etc/php/conf.d/php.ini
+    environment:
+      - DATABASE_URL=mysql://wordpress:wordpress@db:3306/wordpress
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_TABLE_PREFIX=wp_
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
+    restart: unless-stopped
+
+volumes:
+  db_data:
