@@ -3,8 +3,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "8000:80"
     volumes:
       - ./wordpress:/app/public
       - ./Caddyfile:/etc/caddy/Caddyfile
@@ -22,8 +20,6 @@ services:
 
   db:
     image: mysql:8.0
-    ports:
-      - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
     environment:
