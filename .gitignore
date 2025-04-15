@@ -1,0 +1,33 @@
+
+# Composer
+/vendor/
+composer.lock
+composer.phar
+
+# Node.js
+/node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Docker
+.env
+docker-compose.override.yml
+docker-compose.local.yml
+*.env.local
+*.env.dev
+*.env.test
+*.env.prod
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# System Files
+.DS_Store
+Thumbs.db
