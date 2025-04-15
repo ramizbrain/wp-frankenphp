@@ -14,6 +14,8 @@ services:
       - WORDPRESS_DB_PASSWORD=wordpress
       - WORDPRESS_DB_NAME=wordpress
       - WORDPRESS_TABLE_PREFIX=wp_
+      - WORDPRESS_HOME: https://wordpress.sblsblsbl.xyz
+      - WORDPRESS_SITEURL: https://wordpress.sblsblsbl.xyz
     depends_on:
       - db
     restart: unless-stopped
