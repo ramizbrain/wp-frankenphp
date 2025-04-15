@@ -1,5 +1,6 @@
 {
    {$CADDY_GLOBAL_OPTIONS}
+   auto_https disable_redirects
 
    frankenphp {
      # Default configuration for WordPress
