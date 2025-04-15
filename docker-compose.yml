@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - "8000:80"
     volumes:
       - ./wordpress:/app/public
       - ./Caddyfile:/etc/caddy/Caddyfile
