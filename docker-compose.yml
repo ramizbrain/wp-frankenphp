@@ -32,6 +32,8 @@ services:
       - MYSQL_USER=wordpress
       - MYSQL_PASSWORD=wordpress
     restart: unless-stopped
-
+    networks:
+      - dokploy-network
+      
 volumes:
   db_data:
